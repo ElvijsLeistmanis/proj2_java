@@ -20,5 +20,34 @@ public class Course {
 		this.professor = professor;
 		c_ID = count++;
 	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public int getCreditPoints() {
+		return creditPoints;
+	}
+
+	public void setCreditPoints(int creditPoints) {
+		this.creditPoints = creditPoints;
+	}
+
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+
+	public long getC_ID() {
+		return c_ID;
+	}
+	
 	
 }

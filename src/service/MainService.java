@@ -1,5 +1,7 @@
 package service;
 
+import java.util.ArrayList;
+
 import model.Course;
 import model.Grade;
 import model.Professor;
@@ -42,6 +44,28 @@ public class MainService {
 		System.out.println(grade1);
 		System.out.println(grade2);
 		System.out.println(grade3);
+		
+		System.out.println("-------------------");
+		
+		ArrayList<Student> studentList = new ArrayList<Student>();
+		studentList.add(student1);
+		studentList.add(student2);
+		studentList.add(student3);
+		
+		ArrayList<Student> professorList = new ArrayList<Student>();
+		professorList.add(professor1);
+		professorList.add(professor2);
+		professorList.add(professor3);
+		
+		ArrayList<Student> courseList = new ArrayList<Student>();
+		studentList.add(course1);
+		studentList.add(course2);
+		studentList.add(course3);
+		
+		ArrayList<Student> gradeList = new ArrayList<Student>();
+		studentList.add(grade1);
+		studentList.add(grade2);
+		studentList.add(grade3);
 	}
 
 }

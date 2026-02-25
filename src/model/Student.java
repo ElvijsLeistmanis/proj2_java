@@ -40,6 +40,7 @@ public class Student {
 	public void setName(String name) {
 		if(name == null || name.isEmpty() || !(name.matches("[A-Z]{1}[a-z]{2,10}"))) {
 			this.name = "Student";
+			return;
 		}
 		this.name = name;
 	}
@@ -47,6 +48,7 @@ public class Student {
 	public void setSurname(String surname) {
 		if(surname == null || surname.isEmpty() || !(surname.matches("[A-Z]{1}[a-z]{2,10}"))) {
 			this.surname = "Student";
+			return;
 		}
 		this.surname = surname;
 	}
@@ -54,6 +56,7 @@ public class Student {
 	public void setPersonCode (String personCode) {
 		if(personCode == null || personCode.isEmpty() || !(personCode.matches("[0-9]{6}-[0-9]{5}"))) {
 			this.personCode = "000000-00000";
+			return;
 		}
 		this.personCode = personCode;
 	}

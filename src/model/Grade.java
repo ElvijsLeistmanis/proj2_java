@@ -40,6 +40,7 @@ public class Grade {
 	public void setValue(int value) {
 		if (value < 0 || value > 10) {
 			this.value = 1;
+			return;
 		}
 		this.value = value;
 	}
@@ -47,6 +48,7 @@ public class Grade {
 	public void setStudent(Student student) {
 		if(student == null) {
 			this.student = new Student();
+			return;
 		}
 		this.student = student;
 	}
@@ -54,6 +56,7 @@ public class Grade {
 	public void setCourse(Course course) {
 		if (course == null) {
 			this.course = new Course();
+			return;
 		}
 		this.course = course;
 	}

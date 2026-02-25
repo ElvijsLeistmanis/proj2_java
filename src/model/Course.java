@@ -40,6 +40,7 @@ public class Course {
 	public void setTitle(String title) {
 		if(title == null || title.isEmpty()) {
 			this.title = "Title";
+			return;
 		}
 		this.title = title;
 	}
@@ -47,6 +48,7 @@ public class Course {
 	public void setCreditPoints(int creditPoints) {
 		if(creditPoints < 0 || creditPoints > 30) {
 			this.creditPoints = 3;
+			return;
 		}
 		this.creditPoints = creditPoints;
 	}
@@ -54,6 +56,7 @@ public class Course {
 	public void setProfessor(Professor professor) {
 		if(professor == null) {
 			this.professor = new Professor();
+			return;
 		}
 		this.professor = professor;
 	}

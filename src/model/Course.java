@@ -21,33 +21,44 @@ public class Course {
 		c_ID = count++;
 	}
 
-	public String getTitle() {
-		return title;
+	public long getC_ID() {
+		return c_ID;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public String getTitle() {
+		return title;
 	}
 
 	public int getCreditPoints() {
 		return creditPoints;
 	}
 
-	public void setCreditPoints(int creditPoints) {
-		this.creditPoints = creditPoints;
-	}
-
 	public Professor getProfessor() {
 		return professor;
 	}
 
+	public void setTitle(String title) {
+		if(title == null || title.isEmpty()) {
+			this.title = "Title";
+		}
+		this.title = title;
+	}
+
+	public void setCreditPoints(int creditPoints) {
+		if(creditPoints < 0 || creditPoints > 30) {
+			this.creditPoints = 3;
+		}
+		this.creditPoints = creditPoints;
+	}
+
 	public void setProfessor(Professor professor) {
+		if(professor == null) {
+			this.professor = new Professor();
+		}
 		this.professor = professor;
 	}
 
-	public long getC_ID() {
-		return c_ID;
+	public String toString() {
+		return "Course " + title + " (" + creditPoints + ") " + professor.toString();
 	}
-	
-	
 }

@@ -15,9 +15,6 @@ public class Professor {
 	}
 	
 	public Professor(String name, String surname, String degree) {
-		if (name == null || surname == null || degree == null) {
-			
-		}
 		this.name = name;
 		this.surname = surname;
 		this.degree = degree;
@@ -41,22 +38,22 @@ public class Professor {
 	}
 
 	public void setName(String name) {
-		if (name == null) {
-			
+		if(name == null || name.isEmpty() || !(name.matches("[A-Z]{1}[a-z]{2,10}"))) {
+			this.name = "Professor";
 		}
 		this.name = name;
 	}
 
 	public void setSurname(String surname) {
-		if (name == null) {
-			
+		if(surname == null || surname.isEmpty() || !(surname.matches("[A-Z]{1}[a-z]{2,10}"))) {
+			this.surname = "professor";
 		}
 		this.surname = surname;
 	}
 
 	public void setDegree(String degree) {
-		if (name == null) {
-			
+		if (degree == null || degree.isEmpty()) {
+			this.degree = "bsc";
 		}
 		this.degree = degree;
 	}

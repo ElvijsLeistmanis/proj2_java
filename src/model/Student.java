@@ -8,20 +8,16 @@ public class Student {
 	private String personCode;
 	
 	public Student() {
-		name = "Student";
-		surname = "student";
-		personCode = "000000-00000";
+		setName("Student");
+		setSurname("student");
+		setPersonCode("000000-00000");
 		st_ID = count++;
 	}
 	
 	public Student(String name, String surname, String personCode) {
-		if (name == null || surname == null || personCode == null) {
-			
-		}
-		
-		this.name = name;
-		this.surname = surname;
-		this.personCode = personCode;
+		setName(name);
+		setSurname(surname);
+		setPersonCode(personCode);
 		st_ID = count++;
 	}
 

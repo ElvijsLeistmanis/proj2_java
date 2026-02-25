@@ -8,16 +8,16 @@ public class Professor {
 	private String degree;
 	
 	public Professor() {
-		name = "Professor";
-		surname = "professor";
-		degree = "bsc";
+		setName("Professor");
+		setSurname("professor");
+		setDegree("bsc");
 		p_ID = count++;
 	}
 	
 	public Professor(String name, String surname, String degree) {
-		this.name = name;
-		this.surname = surname;
-		this.degree = degree;
+		setName(name);
+		setSurname(surname);
+		setDegree(degree);
 		p_ID = count++;
 	}
 

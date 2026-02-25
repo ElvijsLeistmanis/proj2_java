@@ -61,5 +61,7 @@ public class Grade {
 		this.course = course;
 	}
 	
-	
+	public String toString() {
+		return course.getTitle() + ": " + value + " (" +student.getName() + " " + student.getSurname() + ")";
+	}
 }

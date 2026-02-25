@@ -1,20 +1,22 @@
 package model;
 
+import model.enums.Degree;
+
 public class Professor {
 	private static long count = 0;
 	private long p_ID;
 	private String name;
 	private String surname;
-	private String degree;
+	private Degree degree;
 	
 	public Professor() {
 		setName("Professor");
 		setSurname("professor");
-		setDegree("bsc");
+		setDegree(Degree.other);
 		p_ID = count++;
 	}
 	
-	public Professor(String name, String surname, String degree) {
+	public Professor(String name, String surname, Degree degree) {
 		setName(name);
 		setSurname(surname);
 		setDegree(degree);
@@ -33,7 +35,7 @@ public class Professor {
 		return surname;
 	}
 
-	public String getDegree() {
+	public Degree getDegree() {
 		return degree;
 	}
 
@@ -53,9 +55,9 @@ public class Professor {
 		this.surname = surname;
 	}
 
-	public void setDegree(String degree) {
-		if (degree == null || degree.isEmpty()) {
-			this.degree = "bsc";
+	public void setDegree(Degree degree) {
+		if (degree == null) {
+			this.degree = Degree.other;
 			return;
 		}
 		this.degree = degree;

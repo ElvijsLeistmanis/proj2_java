@@ -1,7 +1,7 @@
 package model;
 
 public class Student {
-	private static int count = 10000;
+	private static long count = 10000;
 	private long st_ID;
 	private String name;
 	private String surname;
@@ -42,14 +42,23 @@ public class Student {
 	}
 
 	public void setName(String name) {
+		if(name == null || name.isEmpty() || !(name.matches("[A-Z]{1}[a-z]{2,10}"))) {
+			this.name = "Student";
+		}
 		this.name = name;
 	}
 
 	public void setSurname(String surname) {
+		if(surname == null || surname.isEmpty() || !(surname.matches("[A-Z]{1}[a-z]{2,10}"))) {
+			this.surname = "Student";
+		}
 		this.surname = surname;
 	}
 	
 	public void setPersonCode (String personCode) {
+		if(personCode == null || personCode.isEmpty() || !(personCode.matches("[0-9]{6}-[0-9]{5}"))) {
+			this.personCode = "000000-00000";
+		}
 		this.personCode = personCode;
 	}
 	

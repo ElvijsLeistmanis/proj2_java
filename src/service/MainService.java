@@ -136,5 +136,15 @@ public class MainService {
 			System.out.println(student.getName() + " " + student.getSurname() + ": " + weightedAvgGrade(student));
 		}
 	}
+	
+	public void createStudent (String name, String surname, String personCode) throws Exception {
+		for(Student student : studentList) {
+			if (student.getPersonCode().equals(personCode)) {
+				throw new Exception("Student already exists.");
+			}
+			
+			studentList.add(new Student(name, surname, personCode));
+		}
+	}
 
 }

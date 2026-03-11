@@ -1,6 +1,7 @@
 package service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import model.Course;
 import model.Grade;
@@ -56,27 +57,11 @@ public class MainService {
 		
 		System.out.println("-------------------");
 		
-		
-		studentList.add(student1);
-		studentList.add(student2);
-		studentList.add(student3);
-		
+		studentList.addAll(Arrays.asList(student1, student2, student3));
+		professorList.addAll(Arrays.asList(professor1, professor2, professor3));
+		courseList.addAll(Arrays.asList(course1, course2, course3));
+		gradeList.addAll(Arrays.asList(grade1, grade2, grade3));
 
-		professorList.add(professor1);
-		professorList.add(professor2);
-		professorList.add(professor3);
-		
-		
-		courseList.add(course1);
-		courseList.add(course2);
-		courseList.add(course3);
-		
-		
-		gradeList.add(grade1);
-		gradeList.add(grade2);
-		gradeList.add(grade3);
-		gradeList.add(grade4);
-		
 		System.out.println("-------------------");
 		
 		System.out.println(student2 + ": " + avgGrade(student2));

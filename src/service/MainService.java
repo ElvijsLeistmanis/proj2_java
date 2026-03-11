@@ -47,6 +47,7 @@ public class MainService {
 		Grade grade1 = new Grade();
 		Grade grade2 = new Grade(6, student2, course2);
 		Grade grade3 = new Grade(11, student2, null);
+		Grade grade4 = new Grade (9, student1, course2);
 		System.out.println(grade1);
 		System.out.println(grade2);
 		System.out.println(grade3);
@@ -72,11 +73,13 @@ public class MainService {
 		gradeList.add(grade1);
 		gradeList.add(grade2);
 		gradeList.add(grade3);
+		gradeList.add(grade4);
 		
 		System.out.println(student2 + ": " + avgGrade(student2));
 		System.out.println(student2 + ": " + weightedAvgGrade(student2));
 		System.out.println(course2 + ": " + avgCourseGrade(course2));
 		System.out.println(professor2 + ": " + coursesPerProfessor(professor2));
+		sortByGrade();
 	}
 	
 	public static double avgGrade( Student student) {
@@ -128,8 +131,11 @@ public class MainService {
 		return courseCount;
 	}
 	
-	public static ArrayList<Student> sortByGrade() {
-		
+	public static void sortByGrade() {
+		studentList.sort((student1, student2) -> Double.compare(weightedAvgGrade(student2), weightedAvgGrade(student1)));
+		for (Student student : studentList) {
+			System.out.println(student.getName() + " " + student.getSurname() + ": " + weightedAvgGrade(student));
+		}
 	}
 
 }

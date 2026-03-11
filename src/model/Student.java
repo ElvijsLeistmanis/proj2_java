@@ -5,16 +5,12 @@ public class Student extends Person{
 	private long st_ID;
 
 	public Student() {
-		setName("Student");
-		setSurname("student");
-		setPersonCode("000000-00000");
+		super();
 		st_ID = count++;
 	}
 	
 	public Student(String name, String surname, String personCode) {
-		setName(name);
-		setSurname(surname);
-		setPersonCode(personCode);
+		super(name, surname, personCode);
 		st_ID = count++;
 	}
 

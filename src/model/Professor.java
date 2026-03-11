@@ -8,17 +8,13 @@ public class Professor extends Person{
 	private Degree degree;
 	
 	public Professor() {
-		setName("Professor");
-		setSurname("professor");
-		setPersonCode("000000-00000");
+		super();
 		setDegree(Degree.other);
 		p_ID = count++;
 	}
 	
 	public Professor(String name, String surname, String personCode, Degree degree) {
-		setName(name);
-		setSurname(surname);
-		setPersonCode(personCode);
+		super(name, surname, personCode);
 		setDegree(degree);
 		p_ID = count++;
 	}

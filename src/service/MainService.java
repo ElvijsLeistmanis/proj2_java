@@ -52,20 +52,47 @@ public class MainService {
 		studentList.add(student2);
 		studentList.add(student3);
 		
-		ArrayList<Student> professorList = new ArrayList<Student>();
+		ArrayList<Professor> professorList = new ArrayList<Professor>();
 		professorList.add(professor1);
 		professorList.add(professor2);
 		professorList.add(professor3);
 		
-		ArrayList<Student> courseList = new ArrayList<Student>();
-		studentList.add(course1);
-		studentList.add(course2);
-		studentList.add(course3);
+		ArrayList<Course> courseList = new ArrayList<Course>();
+		courseList.add(course1);
+		courseList.add(course2);
+		courseList.add(course3);
 		
-		ArrayList<Student> gradeList = new ArrayList<Student>();
-		studentList.add(grade1);
-		studentList.add(grade2);
-		studentList.add(grade3);
+		ArrayList<Grade> gradeList = new ArrayList<Grade>();
+		gradeList.add(grade1);
+		gradeList.add(grade2);
+		gradeList.add(grade3);
+		
+		System.out.println(student2 + ": " + avgGrade(gradeList, student2));
+		System.out.println(student2 + ": " + weightedAvgGrade(gradeList, student2));
+	}
+	
+	public static double avgGrade(ArrayList<Grade> gradeList, Student student) {
+		int gradeCount = 0, gradeTotal = 0;
+		for(Grade grade : gradeList) {
+			if (grade.getStudent().equals(student)) {
+				gradeTotal += grade.getValue();
+				gradeCount++;
+			}
+		}
+		
+		return gradeTotal / gradeCount;
+	}
+	
+	public static double weightedAvgGrade(ArrayList<Grade> gradeList, Student student) {
+		int ectsTotal = 0, gradeTotal = 0;
+		for(Grade grade : gradeList) {
+			if (grade.getStudent().equals(student)) {
+				gradeTotal += grade.getValue() * grade.getCourse().getCreditPoints();
+				ectsTotal += grade.getCourse().getCreditPoints();
+			}
+		}
+		
+		return gradeTotal / ectsTotal;
 	}
 
 }

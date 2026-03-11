@@ -9,7 +9,7 @@ public class Course {
 	
 	public Course() {
 		setTitle("Course");
-		setCreditPoints(3);
+		setCreditPoints(0);
 		setProfessor(new Professor());
 		c_ID = count++;
 	}
@@ -38,7 +38,7 @@ public class Course {
 	}
 
 	public void setTitle(String title) {
-		if(title == null || title.isEmpty()) {
+		if(title == null || title.isEmpty() && title.matches("[A-Z]{1}[A-Za-z0-9]{1,40}")) {
 			this.title = "Title";
 			return;
 		}
@@ -47,7 +47,7 @@ public class Course {
 
 	public void setCreditPoints(int creditPoints) {
 		if(creditPoints < 0 || creditPoints > 30) {
-			this.creditPoints = 3;
+			this.creditPoints = 0;
 			return;
 		}
 		this.creditPoints = creditPoints;

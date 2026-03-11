@@ -9,7 +9,13 @@ import model.Student;
 import model.enums.Degree;
 
 public class MainService {
-
+	
+	private static ArrayList<Student> studentList = new ArrayList<Student>();
+	private static ArrayList<Grade> gradeList = new ArrayList<Grade>();
+	private static ArrayList<Course> courseList = new ArrayList<Course>();
+	private static ArrayList<Professor> professorList = new ArrayList<Professor>();
+	
+	
 	public static void main(String[] args) {
 		Student student1 = new Student();
 		System.out.println(student1);
@@ -47,31 +53,33 @@ public class MainService {
 		
 		System.out.println("-------------------");
 		
-		ArrayList<Student> studentList = new ArrayList<Student>();
+		
 		studentList.add(student1);
 		studentList.add(student2);
 		studentList.add(student3);
 		
-		ArrayList<Professor> professorList = new ArrayList<Professor>();
+
 		professorList.add(professor1);
 		professorList.add(professor2);
 		professorList.add(professor3);
 		
-		ArrayList<Course> courseList = new ArrayList<Course>();
+		
 		courseList.add(course1);
 		courseList.add(course2);
 		courseList.add(course3);
 		
-		ArrayList<Grade> gradeList = new ArrayList<Grade>();
+		
 		gradeList.add(grade1);
 		gradeList.add(grade2);
 		gradeList.add(grade3);
 		
-		System.out.println(student2 + ": " + avgGrade(gradeList, student2));
-		System.out.println(student2 + ": " + weightedAvgGrade(gradeList, student2));
+		System.out.println(student2 + ": " + avgGrade(student2));
+		System.out.println(student2 + ": " + weightedAvgGrade(student2));
+		System.out.println(course2 + ": " + avgCourseGrade(course2));
+		System.out.println(professor2 + ": " + coursesPerProfessor(professor2));
 	}
 	
-	public static double avgGrade(ArrayList<Grade> gradeList, Student student) {
+	public static double avgGrade( Student student) {
 		int gradeCount = 0, gradeTotal = 0;
 		for(Grade grade : gradeList) {
 			if (grade.getStudent().equals(student)) {
@@ -80,10 +88,11 @@ public class MainService {
 			}
 		}
 		
+		if (gradeCount == 0) return 0;
 		return gradeTotal / gradeCount;
 	}
 	
-	public static double weightedAvgGrade(ArrayList<Grade> gradeList, Student student) {
+	public static double weightedAvgGrade(Student student) {
 		int ectsTotal = 0, gradeTotal = 0;
 		for(Grade grade : gradeList) {
 			if (grade.getStudent().equals(student)) {
@@ -92,7 +101,35 @@ public class MainService {
 			}
 		}
 		
+		if (ectsTotal == 0) return 0;
 		return gradeTotal / ectsTotal;
+	}
+	
+	public static double avgCourseGrade(Course course) {
+		int gradeCount = 0, gradeTotal = 0;
+		for(Grade grade : gradeList) {
+			if (grade.getCourse().equals(course)) {
+				gradeTotal += grade.getValue();
+				gradeCount++;
+			}
+		}
+		
+		if (gradeCount == 0) return 0;
+		return gradeTotal / gradeCount;
+	}
+	
+	public static int coursesPerProfessor(Professor professor) {
+		int courseCount = 0;
+		for(Course course : courseList) {
+			if (course.getProfessor().equals(professor)) {
+				courseCount++;
+			}
+		}
+		return courseCount;
+	}
+	
+	public static ArrayList<Student> sortByGrade() {
+		
 	}
 
 }

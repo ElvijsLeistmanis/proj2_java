@@ -40,7 +40,7 @@ public class Professor extends Person{
 	}
 	
 	public String toString() {
-		return getName() + " " + getSurname() + " (" + getDegree() + ")";
+		return "Professor " + getName() + " " + getSurname() + " (" + getDegree() + ")";
 	}
 }
 

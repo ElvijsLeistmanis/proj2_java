@@ -27,8 +27,8 @@ public class MainService {
 		System.out.println("-------------------");
 		
 		Professor professor1 = new Professor();
-		Professor professor2 = new Professor("Karina", "Skirmante", Degree.master);
-		Professor professor3 = new Professor("943290-", "S93nte", null);
+		Professor professor2 = new Professor("Karina", "Skirmante", "291924-19284", Degree.master);
+		Professor professor3 = new Professor("943290-", "S93nte", " ", null);
 		System.out.println(professor1);
 		System.out.println(professor2);
 		System.out.println(professor3);

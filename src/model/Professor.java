@@ -2,23 +2,23 @@ package model;
 
 import model.enums.Degree;
 
-public class Professor {
+public class Professor extends Person{
 	private static long count = 0;
 	private long p_ID;
-	private String name;
-	private String surname;
 	private Degree degree;
 	
 	public Professor() {
 		setName("Professor");
 		setSurname("professor");
+		setPersonCode("000000-00000");
 		setDegree(Degree.other);
 		p_ID = count++;
 	}
 	
-	public Professor(String name, String surname, Degree degree) {
+	public Professor(String name, String surname, String personCode, Degree degree) {
 		setName(name);
 		setSurname(surname);
+		setPersonCode(personCode);
 		setDegree(degree);
 		p_ID = count++;
 	}
@@ -27,32 +27,8 @@ public class Professor {
 		return p_ID;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getSurname() {
-		return surname;
-	}
-
 	public Degree getDegree() {
 		return degree;
-	}
-
-	public void setName(String name) {
-		if(name == null || name.isEmpty() || !(name.matches("[A-Z]{1}[a-z]{2,10}"))) {
-			this.name = "Professor";
-			return;
-		}
-		this.name = name;
-	}
-
-	public void setSurname(String surname) {
-		if(surname == null || surname.isEmpty() || !(surname.matches("[A-Z]{1}[a-z]{2,10}"))) {
-			this.surname = "professor";
-			return;
-		}
-		this.surname = surname;
 	}
 
 	public void setDegree(Degree degree) {
@@ -64,7 +40,7 @@ public class Professor {
 	}
 	
 	public String toString() {
-		return name + " " + surname + " (" + degree + ")";
+		return getName() + " " + getSurname() + " (" + getDegree() + ")";
 	}
 }
 

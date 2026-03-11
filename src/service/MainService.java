@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.Course;
 import model.Grade;
+import model.Person;
 import model.Professor;
 import model.Student;
 import model.enums.Degree;
@@ -14,6 +15,7 @@ public class MainService {
 	private static ArrayList<Grade> gradeList = new ArrayList<Grade>();
 	private static ArrayList<Course> courseList = new ArrayList<Course>();
 	private static ArrayList<Professor> professorList = new ArrayList<Professor>();
+	
 	
 	
 	public static void main(String[] args) {
@@ -75,11 +77,23 @@ public class MainService {
 		gradeList.add(grade3);
 		gradeList.add(grade4);
 		
+		System.out.println("-------------------");
+		
 		System.out.println(student2 + ": " + avgGrade(student2));
 		System.out.println(student2 + ": " + weightedAvgGrade(student2));
 		System.out.println(course2 + ": " + avgCourseGrade(course2));
 		System.out.println(professor2 + ": " + coursesPerProfessor(professor2));
 		sortByGrade();
+		
+		System.out.println("-------------------");
+		
+		ArrayList<Person> personList = new ArrayList<Person>();
+		personList.add(student1);
+		personList.add(student2);
+		personList.add(professor1);
+		personList.add(professor2);
+		
+		System.out.println(personList);
 	}
 	
 	public static double avgGrade( Student student) {
